@@ -27,7 +27,7 @@ class HelloWorldViewHelloWorld extends JViewLegacy
     public function display($tpl = null)
     {
         // Получаем сообщение.
-        $this->item = 'Hello World';  
+        $this->item = $this->get('Item');  
  
         // Отображаем представление.
         parent::display($tpl);
