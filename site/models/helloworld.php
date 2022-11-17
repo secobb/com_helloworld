@@ -1,6 +1,13 @@
 <?php
 // Запрет прямого доступа.
 defined('_JEXEC') or die;
+
+// Подключаем логирование.
+JLog::addLogger(
+    array('text_file' => 'com_helloworld.php'),
+    JLog::ALL,
+    array('com_helloworld')
+);
  
 // Подключаем библиотеку modelitem Joomla.
 jimport('joomla.application.component.modelitem');
