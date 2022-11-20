@@ -8,6 +8,8 @@ JLog::addLogger(
     JLog::ALL,
     array('com_helloworld')
 );
+// Устанавливаем обработку ошибок в режим использования Exception.
+JError::$legacy = false;
  
 // Подключаем библиотеку контроллера Joomla.
 jimport('joomla.application.component.controller');
