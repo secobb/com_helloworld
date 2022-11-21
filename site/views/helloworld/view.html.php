@@ -37,7 +37,7 @@ class HelloWorldViewHelloWorld extends JViewLegacy
             $this->item = $this->get('Item');
 
             // Получаем параметры приложения.
-            $app = Factory::getApplication();
+            $app = JFactory::getApplication();
             $this->params = $app->getParams();
 
             // Подготавливаем документ.
