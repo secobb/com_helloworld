@@ -55,4 +55,24 @@ class HelloWorldModelHelloWorld extends JModelItem
  
         return $this->_item[$id];
     }
+
+     /**
+     * Метод для авто-заполнения состояния модели.
+     *
+     * Заметка. Вызов метода getState в этом методе приведет к рекурсии.
+     *
+     * @return  void
+     */
+    protected function populateState()
+    {
+        $app = JFactory::getApplication();
+
+        // Получаем Id сообщения из Запроса.
+        $id = $app->input->getInt('id', 0);
+
+        // Добавляем Id сообщения в состояние модели.
+        $this->setState('message.id', $id);
+
+        parent::populateState();
+    }
 }
