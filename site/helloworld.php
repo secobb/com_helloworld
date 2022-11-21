@@ -19,7 +19,7 @@ $controller = JControllerLegacy::getInstance('HelloWorld');
  
 // Исполняем задачу task из Запроса.
 $input = JFactory::getApplication()->input;
-$controller->execute($input->getCmd('task', 'display'));
+$controller->execute($input->get('task'));
  
 // Перенаправляем, если перенаправление установлено в контроллере.
 $controller->redirect();

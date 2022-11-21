@@ -15,6 +15,6 @@
                 <option value="1">Hello World!</option>
                 <option value="2">Good bye World!</option>
             </field>
-        <fieldset>
+        </fieldset>
     </fields>
 </metadata>
