@@ -3,10 +3,11 @@
 defined('_JEXEC') or die;
  
 // Загружаем тултипы.
-JHtml::_('behavior.tooltip');
+JHtml::_('bootstrap.tooltip');
+JHtml::_('behavior.multiselect');
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_helloworld'); ?>" method="post" name="adminForm" id="adminForm">
-    <table class="adminlist">
+    <table class="table table-striped">
         <thead><?php echo $this->loadTemplate('head');?></thead>
         <tbody><?php echo $this->loadTemplate('body');?></tbody>
         <tfoot><?php echo $this->loadTemplate('foot');?></tfoot>
