@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <extension type="component" version="3.0.0" method="upgrade">
-    <name>Hello world!</name>
+    <name>COM_HELLOWORLD</name>
     <creationDate>November 2022</creationDate>
     <author>Вася Пупкин</author>
     <authorEmail>Ваш e-mail</authorEmail>
@@ -9,9 +9,9 @@
     <copyright>Информация о копирайте</copyright>
     <license>Информация о лицензии</license>
     <!--  Версия записывается в таблицу компонентов -->
-    <version>0.0.5</version>
+    <version>0.0.6</version>
     <!-- Описание необязательно -->
-    <description>Описание компонента Hello World! ...</description>
+    <description>COM_HELLOWORLD_DESCRIPTION</description>
  
     <!-- Запускается при установке -->
     <install>
@@ -39,6 +39,7 @@
         <filename>index.html</filename>
         <filename>controller.php</filename>
         <filename>helloworld.php</filename>
+        <folder>language</folder>
         <folder>models</folder>
         <folder>views</folder>
     </files>
@@ -46,7 +47,7 @@
     <!-- Администрирование -->
         <administration>
             <!-- Раздел Меню -->
-            <menu>Hello World!</menu>
+            <menu>COM_HELLOWORLD_MENU</menu>
             <!-- Раздел основных файлов администрирования  -->
             <!-- Обратите внимание на значение аттрибута folder: Этот аттрибут описывает папку нашего пакета-установщика из которой должны копироваться файлы.
             Поэтому указанные в этом разделе файлы будут скопированы из папки /admin/ нашего пакета-установщика в соответствующую папку установки. -->
@@ -59,6 +60,12 @@
                 <folder>tables</folder>
                 <folder>views</folder>
             </files>
+            <languages folder="admin">
+                <language tag="en-GB">language/en-GB/en-GB.com_helloworld.ini</language>
+                <language tag="en-GB">language/en-GB/en-GB.com_helloworld.sys.ini</language>
+                <language tag="uk-UA">language/uk-UA/uk-UA.com_helloworld.ini</language>
+                <language tag="uk-UA">language/uk-UA/uk-UA.com_helloworld.sys.ini</language>
+         </languages>
     </administration>
- 
+
 </extension>
