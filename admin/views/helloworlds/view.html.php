@@ -24,6 +24,13 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
      * @var  object
      */
     protected $pagination;
+
+    /**
+	 * The sidebar markup
+	 *
+	 * @var  string
+	 */
+	protected $sidebar;
  
     /**
      * Отображаем список сообщений.
@@ -43,6 +50,9 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
  
             // Получаем объект постраничной навигации.
             $this->pagination = $this->get('Pagination');
+
+            $this->addToolbar();
+			$this->sidebar = JHtmlSidebar::render();
  
             // Отображаем представление.
             parent::display($tpl);
@@ -52,4 +62,17 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
             throw new Exception($e->getMessage());
         }
     }
+
+    /**
+      * Устанавливает панель инструментов.
+      *
+      * @return void
+      */
+      protected function addToolBar()
+      {
+          JToolBarHelper::title(JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLDS'), 'helloworld');
+          JToolBarHelper::addNew('helloworld.add');
+          JToolBarHelper::editList('helloworld.edit');
+          JToolBarHelper::deleteList('JGLOBAL_CONFIRM_DELETE', 'helloworlds.delete');
+      }
 }
