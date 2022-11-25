@@ -4,8 +4,11 @@ defined('_JEXEC') or die;
  
 // Загружаем тултипы.
 JHtml::_('behavior.tooltip');
+
+// Загружаем проверку формы.
+JHtml::_('behavior.formvalidator');
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_helloworld&layout=edit&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_helloworld&layout=edit&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" class="form-validate">
     <fieldset>
         <legend><?php echo JText::_('COM_HELLOWORLD_HELLOWORLD_DETAILS'); ?></legend>
         <ul>

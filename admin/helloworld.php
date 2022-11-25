@@ -7,7 +7,7 @@ JError::$legacy = false;
  
 // Устанавливаем некоторые глобальные свойства.
 $document = JFactory::getDocument();
-$document->addStyleDeclaration('.icon-48-helloworld {background-image: url(../media/com_helloworld/images/hello-48x48.png);}');
+$document->addStyleDeclaration('.icon-helloworld {background-image: url(../media/com_helloworld/images/hello-48x48.png); height:50px; width:50px}');
 
 // Подключаем библиотеку контроллера Joomla.
 jimport('joomla.application.component.controller');
