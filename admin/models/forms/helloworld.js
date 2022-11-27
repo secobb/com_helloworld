@@ -1,4 +1,4 @@
-window.addEvent('domready', function() {
+jQuery(document).ready(function(){
     document.formvalidator.setHandler('greeting',
         function (value) {
             regex=/^[^0-9]+$/;
