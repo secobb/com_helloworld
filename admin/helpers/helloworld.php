@@ -17,13 +17,13 @@ abstract class HelloWorldHelper
     public static function addSubmenu($submenu)
     {
         // Добавляем пункты подменю.
-        JSubMenuHelper::addEntry(
+        JHtmlSidebar::addEntry(
             JText::_('COM_HELLOWORLD_SUBMENU_MESSAGES'),
             'index.php?option=com_helloworld',
             $submenu == 'messages'
         );
  
-        JSubMenuHelper::addEntry(
+        JHtmlSidebar::addEntry(
             JText::_('COM_HELLOWORLD_SUBMENU_CATEGORIES'),
             'index.php?option=com_categories&view=categories&extension=com_helloworld',
             $submenu == 'categories'
