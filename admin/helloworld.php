@@ -4,6 +4,9 @@ defined('_JEXEC') or die;
  
 // Устанавливаем обработку ошибок в режим использования Exception.
 JError::$legacy = false;
+
+// Подключаем хелпер.
+JLoader::register('HelloWorldHelper', dirname(__FILE__) . '/helpers/helloworld.php');
  
 // Устанавливаем некоторые глобальные свойства.
 $document = JFactory::getDocument();

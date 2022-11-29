@@ -23,6 +23,9 @@ class HelloWorldController extends JControllerLegacy
         // Устанавливаем представление по умолчанию, если оно не было установлено.
         $input = JFactory::getApplication()->input;
         $input->set('view', $input->get('view', 'HelloWorlds'));
+
+        // Устанавливаем подменю.
+        HelloWorldHelper::addSubmenu('messages');
  
         parent::display($cachable);
     }
