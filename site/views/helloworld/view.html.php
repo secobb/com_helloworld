@@ -15,13 +15,7 @@ class HelloWorldViewHelloWorld extends JViewLegacy
      *
      * @var  string
      */
-    protected $item;  
-    /**
-     * Параметры.
-     *
-     * @var  object
-     */
-    protected $params;
+    protected $item;
    /**
      * Переопределяем метод display класса JViewLegacy.
      *
@@ -36,10 +30,6 @@ class HelloWorldViewHelloWorld extends JViewLegacy
              // Получаем сообщение из модели.
             $this->item = $this->get('Item');
 
-            // Получаем параметры приложения.
-            $app = JFactory::getApplication();
-            $this->params = $app->getParams();
-
             // Подготавливаем документ.
             $this->_prepareDocument();
 
@@ -48,6 +38,12 @@ class HelloWorldViewHelloWorld extends JViewLegacy
         }
         catch (Exeption $e)
         {
+            if ($e->getCode() == 404)
+            {
+                // Сообщение не найдено.
+                throw new Exception($e->getMessage(), 404);
+            }
+ 
             JFactory::getApplication()->enqueueMessage(JText::_('COM_HELLOWORLD_ERROR_OCCURRED'), 'error');
             JLog::add($e->getMessage(), JLog::ERROR, 'com_helloworld');
         }
@@ -70,16 +66,16 @@ class HelloWorldViewHelloWorld extends JViewLegacy
 
         if($menu)
         {
-            $this->params->def('page_heading', $this->params->get('page_title', $menu_title));
+            $this->item->params->def('page_heading', $this->item->params->get('page_title', $menu_title));
 
         }
         else
         {
-            $this->params->def('page_heading', JText::_('COM_HELLOWORLD_DEFAULT_PAGE_TITLE'));
+            $this->item->params->def('page_heading', JText::_('COM_HELLOWORLD_DEFAULT_PAGE_TITLE'));
         }
 
          // Получаем заголовок страницы в браузере из параметров.
-         $title = $this->params->get('page_title', '');
+         $title = $this->item->params->get('page_title', '');
 
         if (empty($title))
         {
@@ -96,26 +92,26 @@ class HelloWorldViewHelloWorld extends JViewLegacy
  
         if (empty($title))
         {
-            $title = $this->item;
+            $title = $this->item->greeting;
         }
 
         // Устанавливаем заголовок страницы в браузере.
         $this->document->setTitle($title);
 
         // Добавляем поддержку метаданных из пункта меню.
-        if ($this->params->get('menu-meta_description'))
+        if ($this->item->params->get('menu-meta_description'))
         {
-            $this->document->setDescription($this->params->get('menu-meta_description'));
+            $this->document->setDescription($this->item->params->get('menu-meta_description'));
         }
  
-        if ($this->params->get('menu-meta_keywords'))
+        if ($this->item->params->get('menu-meta_keywords'))
         {
-            $this->document->setMetadata('keywords', $this->params->get('menu-meta_keywords'));
+            $this->document->setMetadata('keywords', $this->item->params->get('menu-meta_keywords'));
         }
  
-        if ($this->params->get('robots'))
+        if ($this->item->params->get('robots'))
         {
-            $this->document->setMetadata('robots', $this->params->get('robots'));
+            $this->document->setMetadata('robots', $this->item->params->get('robots'));
         }
     }
 }
